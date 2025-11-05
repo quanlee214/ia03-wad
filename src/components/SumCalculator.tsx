@@ -44,6 +44,14 @@ const SumCalculator: React.FC = () => {
         setError('');
     };
 
+
+    // Handle Enter key for calculation
+    const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+        if (e.key === 'Enter') {
+            handleCalculate();
+        }
+    };
+
     return (
         <div className="w-[300px] md:w-[350px] mx-auto mt-10 p-8 border-2 border-gray-200 rounded-xl bg-white shadow-lg">
             <h2 className="text-2xl font-bold mb-6 text-center text-blue-700">Sum Calculator</h2>
@@ -54,6 +62,7 @@ const SumCalculator: React.FC = () => {
                     type="text"
                     value={number1}
                     onChange={handleNumber1Change}
+                    onKeyDown={handleKeyDown}
                     placeholder="Enter first number"
                     className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
                 />
@@ -65,6 +74,7 @@ const SumCalculator: React.FC = () => {
                     type="text"
                     value={number2}
                     onChange={handleNumber2Change}
+                    onKeyDown={handleKeyDown}
                     placeholder="Enter second number"
                     className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
                 />
